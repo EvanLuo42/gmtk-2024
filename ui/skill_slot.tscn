@@ -1,0 +1,45 @@
+[gd_scene load_steps=3 format=3 uid="uid://d3ppwkowr1y46"]
+
+[ext_resource type="Script" path="res://scripts/skill_slot.gd" id="1_nknmk"]
+[ext_resource type="Texture2D" uid="uid://dwqn3ibsb4w75" path="res://sprites/player.png" id="1_q6s2f"]
+
+[node name="SkillSlot" type="VBoxContainer"]
+custom_minimum_size = Vector2(64, 2.08165e-12)
+anchors_preset = -1
+anchor_right = 0.033
+anchor_bottom = 0.059
+offset_left = 1.0
+offset_top = -1.0
+offset_right = 1.64
+offset_bottom = 245.28
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_nknmk")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 2
+texture = ExtResource("1_q6s2f")
+expand_mode = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_top = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Background" type="TextureRect" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("1_q6s2f")
+expand_mode = 4
+
+[node name="Background2" type="TextureRect" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("1_q6s2f")
+expand_mode = 4
+
+[node name="Background3" type="TextureRect" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("1_q6s2f")
+expand_mode = 4

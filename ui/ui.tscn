@@ -1,0 +1,43 @@
+[gd_scene load_steps=2 format=3 uid="uid://jtexcvnxxhge"]
+
+[ext_resource type="PackedScene" uid="uid://d3ppwkowr1y46" path="res://ui/skill_slot.tscn" id="1_eqvdb"]
+
+[node name="UI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 3.0
+offset_top = -5.0
+offset_right = 3.0
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SkillBar" type="GridContainer" parent="."]
+custom_minimum_size = Vector2(2.08165e-12, 2.08165e-12)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -81.0
+offset_bottom = 19.0
+grow_horizontal = 0
+scale = Vector2(4, 4)
+pivot_offset = Vector2(81, 2.08165e-12)
+columns = 5
+
+[node name="SkillSlot" parent="SkillBar" instance=ExtResource("1_eqvdb")]
+layout_mode = 2
+
+[node name="SkillSlot2" parent="SkillBar" instance=ExtResource("1_eqvdb")]
+layout_mode = 2
+
+[node name="SkillSlot3" parent="SkillBar" instance=ExtResource("1_eqvdb")]
+layout_mode = 2
+
+[node name="SkillSlot4" parent="SkillBar" instance=ExtResource("1_eqvdb")]
+layout_mode = 2
+
+[node name="SkillSlot5" parent="SkillBar" instance=ExtResource("1_eqvdb")]
+layout_mode = 2

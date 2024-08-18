@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Skill" load_steps=2 format=3 uid="uid://clylqu3whcq5v"]
+
+[ext_resource type="Script" path="res://scripts/skill.gd" id="1_n7mtc"]
+
+[resource]
+script = ExtResource("1_n7mtc")
+name = "Block Builder"
+description = ""
+stars = 1
