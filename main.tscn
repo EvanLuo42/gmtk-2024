@@ -1,8 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://tpte83hapm22"]
+[gd_scene load_steps=6 format=3 uid="uid://tpte83hapm22"]
 
 [ext_resource type="Texture2D" uid="uid://c2qigs627r62k" path="res://sprites/tile.png" id="1_y8dlg"]
-[ext_resource type="Script" path="res://scripts/player.gd" id="2_g1an6"]
-[ext_resource type="Texture2D" uid="uid://dwqn3ibsb4w75" path="res://sprites/player.png" id="2_lpldy"]
+[ext_resource type="PackedScene" uid="uid://cs4mx6pohanja" path="res://scenes/character.tscn" id="2_tsg36"]
+[ext_resource type="PackedScene" uid="uid://jtexcvnxxhge" path="res://ui/ui.tscn" id="4_76mi2"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4mxjo"]
 texture = ExtResource("1_y8dlg")
@@ -212,10 +212,6 @@ tile_size = Vector2i(512, 512)
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_4mxjo")
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vs4yv"]
-radius = 26.0
-height = 90.0
-
 [node name="Node2D" type="Node2D"]
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -224,27 +220,8 @@ tile_set = SubResource("TileSet_nw14w")
 format = 2
 layer_0/tile_data = PackedInt32Array(327680, 0, 0, 327681, 65536, 0, 327682, 65536, 0, 327683, 65536, 0, 327684, 65536, 0, 327685, 131072, 0, 393221, 131072, 1, 458757, 131072, 2, 458756, 65536, 2, 458755, 65536, 2, 458754, 65536, 2, 458753, 65536, 2, 458752, 0, 2, 393216, 0, 1, 393217, 65536, 1, 393218, 65536, 1, 393219, 65536, 1, 393220, 65536, 1)
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
-position = Vector2(196, 569)
-script = ExtResource("2_g1an6")
-speed = 700.0
-acceleration = 0.8
-deceleration = 0.8
-jump_speed = -800.0
-gravity = 3000.0
+[node name="Character" parent="." instance=ExtResource("2_tsg36")]
 
-[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
-scale = Vector2(5, 5)
-texture = ExtResource("2_lpldy")
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
-position = Vector2(5, 3)
-shape = SubResource("CapsuleShape2D_vs4yv")
-
-[node name="LandRay" type="RayCast2D" parent="CharacterBody2D"]
-position = Vector2(3, 45)
-target_position = Vector2(0, 23)
-
-[node name="CoyoteRay" type="RayCast2D" parent="CharacterBody2D"]
-position = Vector2(-13, 54)
-target_position = Vector2(-66, 1)
+[node name="UI" parent="CanvasLayer" instance=ExtResource("4_76mi2")]

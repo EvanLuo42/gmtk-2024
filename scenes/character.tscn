@@ -1,0 +1,33 @@
+[gd_scene load_steps=4 format=3 uid="uid://cs4mx6pohanja"]
+
+[ext_resource type="Script" path="res://scripts/player.gd" id="1_2y5o1"]
+[ext_resource type="Texture2D" uid="uid://dwqn3ibsb4w75" path="res://sprites/player.png" id="2_evnml"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vs4yv"]
+radius = 26.0
+height = 90.0
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+position = Vector2(196, 569)
+script = ExtResource("1_2y5o1")
+speed = 700.0
+acceleration = 0.1
+deceleration = 0.1
+jump_speed = -800.0
+gravity = 3000.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(5, 5)
+texture = ExtResource("2_evnml")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(5, 3)
+shape = SubResource("CapsuleShape2D_vs4yv")
+
+[node name="LandRay" type="RayCast2D" parent="."]
+position = Vector2(3, 45)
+target_position = Vector2(0, 23)
+
+[node name="CoyoteRay" type="RayCast2D" parent="."]
+position = Vector2(2, 45)
+target_position = Vector2(-92, 1)

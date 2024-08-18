@@ -1,16 +1,40 @@
 extends Control
 
-@export_enum("Slot 1:G", "Slot 2:H", "Slot 3:J", "Slot 4:K", "Slot 5:L") 
-var slot_index: String = "G"
+@export var index: int
 
 var skill: Skill
 
-@onready var key = $Key
+@onready var key_label = $KeyBorder/Key
 @onready var icon = $Icon
+@onready var key = "slot_" + str(index)
 
 func _ready():
-	key.text = slot_index
+	key_label.text = get_key(key)
 	
 func _process(delta):
+	if len(PlayerSkills.slots) >= index:
+		skill = PlayerSkills.slots[index - 1]
+	else:
+		skill = null
 	if skill:
 		icon.texture = skill.icon
+	else:
+		icon.texture = null
+		
+	if Input.is_action_just_pressed(key) and skill:
+		PlayerSkills.emit_signal(skill.signal_name)
+
+
+func get_key(action: String):
+	match action:
+		"slot_1":
+			return "G"
+		"slot_2":
+			return "H"
+		"slot_3":
+			return "J"
+		"slot_4":
+			return "K"
+		"slot_5":
+			return "L"
+		

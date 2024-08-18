@@ -1,0 +1,31 @@
+[gd_resource type="Theme" load_steps=7 format=3 uid="uid://b2nrxvxpdvwsj"]
+
+[ext_resource type="Texture2D" uid="uid://dm6ob3qrvo67n" path="res://sprites/ui/ui_button_hover.png" id="1_8bst3"]
+[ext_resource type="Texture2D" uid="uid://d2ot8gm0ae15m" path="res://sprites/ui/ui_button.png" id="2_w6txg"]
+[ext_resource type="Texture2D" uid="uid://tcbmbe63v1ns" path="res://sprites/ui/ui_book_panel.png" id="3_j6xsq"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_oyme4"]
+texture = ExtResource("1_8bst3")
+texture_margin_left = 20.0
+texture_margin_top = 20.0
+texture_margin_right = 20.0
+texture_margin_bottom = 20.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_p650c"]
+texture = ExtResource("2_w6txg")
+texture_margin_left = 20.0
+texture_margin_top = 20.0
+texture_margin_right = 20.0
+texture_margin_bottom = 20.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yjs5q"]
+texture = ExtResource("3_j6xsq")
+texture_margin_left = 60.0
+texture_margin_top = 150.0
+texture_margin_right = 60.0
+texture_margin_bottom = 40.0
+
+[resource]
+Button/styles/hover = SubResource("StyleBoxTexture_oyme4")
+Button/styles/normal = SubResource("StyleBoxTexture_p650c")
+PanelContainer/styles/panel = SubResource("StyleBoxTexture_yjs5q")

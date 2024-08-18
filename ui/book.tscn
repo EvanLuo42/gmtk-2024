@@ -1,39 +1,83 @@
-[gd_scene load_steps=2 format=3 uid="uid://77n2e175wke"]
+[gd_scene load_steps=16 format=3 uid="uid://77n2e175wke"]
 
-[ext_resource type="Texture2D" uid="uid://dwqn3ibsb4w75" path="res://sprites/player.png" id="1_wgxn5"]
+[ext_resource type="Theme" uid="uid://b2nrxvxpdvwsj" path="res://theme.tres" id="1_g1777"]
+[ext_resource type="Script" path="res://scripts/book.gd" id="1_llchq"]
+[ext_resource type="Texture2D" uid="uid://dwqn3ibsb4w75" path="res://sprites/player.png" id="2_mbjra"]
+[ext_resource type="Texture2D" uid="uid://d2ot8gm0ae15m" path="res://sprites/ui/ui_button.png" id="3_tee4t"]
+[ext_resource type="Texture2D" uid="uid://yjiodw7ietma" path="res://sprites/ui/ui_button_book.png" id="4_frlgn"]
+[ext_resource type="Texture2D" uid="uid://cnbd13u0jjbam" path="res://sprites/ui/ui_arrow.png" id="4_kotnm"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ee0sh"]
+texture = ExtResource("3_tee4t")
+texture_margin_left = 20.0
+texture_margin_top = 20.0
+texture_margin_right = 20.0
+texture_margin_bottom = 20.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_q2pl7"]
+texture = ExtResource("4_kotnm")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vgv01"]
+texture = ExtResource("4_kotnm")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_e0fg1"]
+texture = ExtResource("4_kotnm")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_s6m8n"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_13s5p"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7vqvv"]
+texture = ExtResource("4_frlgn")
+texture_margin_left = 50.0
+texture_margin_top = 8.0
+texture_margin_right = 50.0
+texture_margin_bottom = 8.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_32veg"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_doxbc"]
 
 [node name="Book" type="PanelContainer"]
 custom_minimum_size = Vector2(2.08165e-12, 2.08165e-12)
 anchors_preset = -1
 anchor_right = 0.266
 anchor_bottom = 0.523
-offset_left = -2.0
-offset_top = 2.0
-offset_right = 0.279995
-offset_bottom = 0.159998
+offset_left = 3.0
+offset_top = -116.0
+offset_right = 162.28
+offset_bottom = -40.84
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_g1777")
+script = ExtResource("1_llchq")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2
-theme_override_constants/margin_left = 50
-theme_override_constants/margin_top = 50
-theme_override_constants/margin_right = 50
-theme_override_constants/margin_bottom = 50
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_constants/margin_bottom = 20
+theme_override_constants/margin_bottom = 30
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/MarginContainer"]
 layout_mode = 2
+theme_override_constants/separation = 20
 
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer"]
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
-texture = ExtResource("1_wgxn5")
+theme_override_styles/panel = SubResource("StyleBoxTexture_ee0sh")
+
+[node name="Icon" type="TextureRect" parent="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/PanelContainer"]
+layout_mode = 2
+texture = ExtResource("2_mbjra")
 expand_mode = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer"]
@@ -48,7 +92,60 @@ text = "Title"
 layout_mode = 2
 text = "Consume 3 x Stars"
 
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+[node name="Description" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
 autowrap_mode = 1
+
+[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 30
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/MarginContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 50
+
+[node name="ArrowLeft" type="Button" parent="MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer"]
+custom_minimum_size = Vector2(64, 2.08165e-12)
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_q2pl7")
+theme_override_styles/hover = SubResource("StyleBoxTexture_vgv01")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_e0fg1")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_s6m8n")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_13s5p")
+
+[node name="Button" type="Button" parent="MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer"]
+custom_minimum_size = Vector2(170, 45)
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_default_cursor_shape = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_7vqvv")
+theme_override_styles/hover = SubResource("StyleBoxTexture_7vqvv")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_7vqvv")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_32veg")
+theme_override_styles/focus = SubResource("StyleBoxTexture_7vqvv")
+text = "Add"
+
+[node name="ArrowRight" type="Button" parent="MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer"]
+custom_minimum_size = Vector2(64, 2.08165e-12)
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_doxbc")
+theme_override_styles/hover = SubResource("StyleBoxTexture_doxbc")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_doxbc")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_doxbc")
+theme_override_styles/focus = SubResource("StyleBoxTexture_doxbc")
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/ArrowRight"]
+custom_minimum_size = Vector2(64, 45)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("4_kotnm")
+flip_h = true
+
+[connection signal="button_down" from="MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/ArrowLeft" to="." method="_on_arrow_left_button_down"]
+[connection signal="button_down" from="MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Button" to="." method="_on_button_button_down"]
+[connection signal="button_down" from="MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/ArrowRight" to="." method="_on_arrow_right_button_down"]

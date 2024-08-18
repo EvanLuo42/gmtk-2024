@@ -1,6 +1,15 @@
-[gd_scene load_steps=2 format=3 uid="uid://jtexcvnxxhge"]
+[gd_scene load_steps=9 format=3 uid="uid://jtexcvnxxhge"]
 
 [ext_resource type="PackedScene" uid="uid://d3ppwkowr1y46" path="res://ui/skill_slot.tscn" id="1_eqvdb"]
+[ext_resource type="PackedScene" uid="uid://77n2e175wke" path="res://ui/book.tscn" id="2_7f0a2"]
+[ext_resource type="Texture2D" uid="uid://clo64hx7q24lf" path="res://sprites/ui/ui_star_full.png" id="3_kigh0"]
+[ext_resource type="Script" path="res://scripts/star.gd" id="3_xwl43"]
+[ext_resource type="Texture2D" uid="uid://cmmdag6v4x5n7" path="res://sprites/ui/ui_magic_book.png" id="5_tnt8a"]
+[ext_resource type="Texture2D" uid="uid://duorm1up3nwfc" path="res://sprites/ui/ui_skill_slot_key.png" id="6_v71al"]
+[ext_resource type="Script" path="res://scripts/book_button.gd" id="6_y4h81"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_q82jq"]
+texture = ExtResource("5_tnt8a")
 
 [node name="UI" type="Control"]
 layout_mode = 3
@@ -20,24 +29,148 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -81.0
-offset_bottom = 19.0
+offset_left = -404.0
+offset_right = -108.0
+offset_bottom = 64.0
 grow_horizontal = 0
-scale = Vector2(4, 4)
+scale = Vector2(1.5, 1.5)
 pivot_offset = Vector2(81, 2.08165e-12)
+theme_override_constants/h_separation = -15
 columns = 5
 
 [node name="SkillSlot" parent="SkillBar" instance=ExtResource("1_eqvdb")]
 layout_mode = 2
+index = 1
 
 [node name="SkillSlot2" parent="SkillBar" instance=ExtResource("1_eqvdb")]
 layout_mode = 2
+index = 2
 
 [node name="SkillSlot3" parent="SkillBar" instance=ExtResource("1_eqvdb")]
 layout_mode = 2
+index = 3
 
 [node name="SkillSlot4" parent="SkillBar" instance=ExtResource("1_eqvdb")]
 layout_mode = 2
+index = 4
 
 [node name="SkillSlot5" parent="SkillBar" instance=ExtResource("1_eqvdb")]
 layout_mode = 2
+index = 5
+
+[node name="HBoxContainer" type="VBoxContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -279.0
+offset_top = -355.0
+offset_right = 279.0
+offset_bottom = 355.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Book" parent="HBoxContainer" instance=ExtResource("2_7f0a2")]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_right = 30
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="Star1" type="TextureRect" parent="HBoxContainer/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+texture = ExtResource("3_kigh0")
+script = ExtResource("3_xwl43")
+index = 1
+
+[node name="Star2" type="TextureRect" parent="HBoxContainer/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+texture = ExtResource("3_kigh0")
+script = ExtResource("3_xwl43")
+index = 2
+
+[node name="Star3" type="TextureRect" parent="HBoxContainer/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+texture = ExtResource("3_kigh0")
+script = ExtResource("3_xwl43")
+index = 3
+
+[node name="Star4" type="TextureRect" parent="HBoxContainer/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+texture = ExtResource("3_kigh0")
+script = ExtResource("3_xwl43")
+index = 4
+
+[node name="Star5" type="TextureRect" parent="HBoxContainer/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+texture = ExtResource("3_kigh0")
+script = ExtResource("3_xwl43")
+index = 5
+
+[node name="Star6" type="TextureRect" parent="HBoxContainer/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+texture = ExtResource("3_kigh0")
+script = ExtResource("3_xwl43")
+index = 6
+
+[node name="BookOpenButton" type="Button" parent="."]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 1
+offset_left = 44.0
+offset_top = 2.0
+offset_right = 172.0
+offset_bottom = 130.0
+theme_override_styles/normal = SubResource("StyleBoxTexture_q82jq")
+theme_override_styles/hover = SubResource("StyleBoxTexture_q82jq")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_q82jq")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_q82jq")
+theme_override_styles/focus = SubResource("StyleBoxTexture_q82jq")
+script = ExtResource("6_y4h81")
+
+[node name="Key" type="TextureRect" parent="BookOpenButton"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -44.0
+offset_top = -29.0
+offset_right = -4.0
+offset_bottom = 11.0
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("6_v71al")
+
+[node name="Label" type="Label" parent="BookOpenButton/Key"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -8.33332
+offset_top = -21.6667
+offset_right = 8.66668
+offset_bottom = 20.3333
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 30
+text = "E"
+
+[connection signal="button_down" from="BookOpenButton" to="BookOpenButton" method="_on_button_down"]

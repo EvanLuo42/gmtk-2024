@@ -1,45 +1,73 @@
-[gd_scene load_steps=3 format=3 uid="uid://d3ppwkowr1y46"]
+[gd_scene load_steps=5 format=3 uid="uid://d3ppwkowr1y46"]
 
+[ext_resource type="Texture2D" uid="uid://bx3f25kirbfo2" path="res://sprites/ui/ui_skill_slot_back.png" id="1_a0c7i"]
 [ext_resource type="Script" path="res://scripts/skill_slot.gd" id="1_nknmk"]
-[ext_resource type="Texture2D" uid="uid://dwqn3ibsb4w75" path="res://sprites/player.png" id="1_q6s2f"]
+[ext_resource type="Texture2D" uid="uid://duorm1up3nwfc" path="res://sprites/ui/ui_skill_slot_key.png" id="3_irwsf"]
 
-[node name="SkillSlot" type="VBoxContainer"]
-custom_minimum_size = Vector2(64, 2.08165e-12)
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tv6g7"]
+texture = ExtResource("1_a0c7i")
+texture_margin_left = 10.0
+texture_margin_top = 10.0
+texture_margin_right = 10.0
+texture_margin_bottom = 10.0
+
+[node name="SkillSlot" type="Panel"]
+custom_minimum_size = Vector2(64, 64)
 anchors_preset = -1
-anchor_right = 0.033
-anchor_bottom = 0.059
-offset_left = 1.0
-offset_top = -1.0
-offset_right = 1.64
-offset_bottom = 245.28
+anchor_right = 0.133
+anchor_bottom = 0.233
+offset_top = -4.0
+offset_right = -127.36
+offset_bottom = -127.64
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_tv6g7")
 script = ExtResource("1_nknmk")
 
-[node name="Background" type="TextureRect" parent="."]
-layout_mode = 2
-texture = ExtResource("1_q6s2f")
-expand_mode = 4
+[node name="KeyBorder" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.051
+anchor_top = 0.871
+anchor_right = 0.051
+anchor_bottom = 0.871
+offset_left = 5.472
+offset_top = -19.488
+offset_right = 25.472
+offset_bottom = 0.511993
+grow_vertical = 0
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("3_irwsf")
+expand_mode = 2
+stretch_mode = 4
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
-layout_mode = 2
-theme_override_constants/margin_top = 10
+[node name="Key" type="Label" parent="KeyBorder"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.125
+anchor_top = 0.852
+anchor_right = 0.125
+anchor_bottom = 0.852
+offset_left = 2.5
+offset_top = -17.04
+offset_right = 15.5
+offset_bottom = 2.96
+theme_override_font_sizes/font_size = 13
+text = "A"
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
-layout_mode = 2
-theme_override_constants/separation = 10
-
-[node name="Background" type="TextureRect" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
-texture = ExtResource("1_q6s2f")
-expand_mode = 4
-
-[node name="Background2" type="TextureRect" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
-texture = ExtResource("1_q6s2f")
-expand_mode = 4
-
-[node name="Background3" type="TextureRect" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
-texture = ExtResource("1_q6s2f")
-expand_mode = 4
+[node name="Icon" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -10.0
+offset_top = -15.0
+offset_right = 68.0
+offset_bottom = 68.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.3, 0.3)
+expand_mode = 2
+stretch_mode = 4
