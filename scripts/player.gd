@@ -30,8 +30,8 @@ func _physics_process(delta):
 		velocity.x = lerp(velocity.x, 0.0, deceleration)
 
 	move_and_slide()
-	if Input.is_action_just_pressed("jump") and (land_ray.is_colliding() or coyote_ray.is_colliding()):
-		velocity.y = jump_speed
+	if Input.is_action_just_pressed("jump") and (land_ray.is_colliding() or coyote_ray.is_colliding() or (is_on_ceiling() and gravity_dir < 0)):
+		velocity.y = gravity_dir * jump_speed
 		
 
 func _on_block_builder():
@@ -44,6 +44,7 @@ func _on_block_builder():
 	if dir_x != 0 or dir_y != 0:
 		dir = Vector2(dir_x, dir_y)
 	
+	_block.gravity_dir = gravity_dir
 	_block.velocity = dir * _block.speed
 	
 	
