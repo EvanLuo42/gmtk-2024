@@ -14,113 +14,117 @@ texture_margin_top = 20.0
 texture_margin_right = 20.0
 texture_margin_bottom = 20.0
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_q2pl7"]
-texture = ExtResource("4_kotnm")
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gah1y"]
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vgv01"]
-texture = ExtResource("4_kotnm")
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tyvs4"]
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_e0fg1"]
-texture = ExtResource("4_kotnm")
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pim3l"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_s6m8n"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ao655"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_13s5p"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wnubf"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7vqvv"]
 texture = ExtResource("4_frlgn")
-texture_margin_left = 50.0
-texture_margin_top = 8.0
-texture_margin_right = 50.0
-texture_margin_bottom = 8.0
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_32veg"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_doxbc"]
 
-[node name="Book" type="PanelContainer"]
+[node name="Book" type="AspectRatioContainer"]
 custom_minimum_size = Vector2(2.08165e-12, 2.08165e-12)
-anchors_preset = -1
-anchor_right = 0.266
-anchor_bottom = 0.523
-offset_left = 3.0
-offset_top = -116.0
-offset_right = 162.28
-offset_bottom = -40.84
-grow_horizontal = 2
-grow_vertical = 2
+offset_right = 996.0
+offset_bottom = 1192.0
+scale = Vector2(0.5, 0.5)
 theme = ExtResource("1_g1777")
+stretch_mode = 0
 script = ExtResource("1_llchq")
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
-layout_mode = 2
-theme_override_constants/margin_left = 20
-theme_override_constants/margin_top = 20
-theme_override_constants/margin_right = 20
-theme_override_constants/margin_bottom = 20
-
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+[node name="PanelContainer" type="PanelContainer" parent="."]
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_top = 180
+theme_override_constants/margin_right = 100
+theme_override_constants/margin_bottom = 40
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/margin_bottom = 30
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/MarginContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/MarginContainer"]
 layout_mode = 2
 theme_override_constants/separation = 20
 
-[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer"]
+[node name="PanelContainer" type="PanelContainer" parent="PanelContainer/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_ee0sh")
 
-[node name="Icon" type="TextureRect" parent="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/PanelContainer"]
+[node name="Icon" type="TextureRect" parent="PanelContainer/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/PanelContainer"]
 layout_mode = 2
 texture = ExtResource("2_mbjra")
 expand_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer"]
 layout_mode = 2
 
-[node name="Title" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer"]
+[node name="Title" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 theme_type_variation = &"HeaderLarge"
 text = "Title"
 
-[node name="ConsumeStar" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer"]
+[node name="ConsumeStar" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 text = "Consume 3 x Stars"
 
-[node name="Description" type="Label" parent="MarginContainer/VBoxContainer"]
+[node name="Description" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 18
 text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
 autowrap_mode = 1
 
-[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
+[node name="MarginContainer2" type="MarginContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/margin_top = 30
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/MarginContainer2"]
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/MarginContainer2"]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_constants/separation = 50
 
-[node name="ArrowLeft" type="Button" parent="MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer"]
-custom_minimum_size = Vector2(64, 2.08165e-12)
+[node name="ArrowLeft" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer"]
+custom_minimum_size = Vector2(50, 2.08165e-12)
 layout_mode = 2
 mouse_default_cursor_shape = 2
-theme_override_styles/normal = SubResource("StyleBoxTexture_q2pl7")
-theme_override_styles/hover = SubResource("StyleBoxTexture_vgv01")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_e0fg1")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_s6m8n")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_13s5p")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_gah1y")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_tyvs4")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_pim3l")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_ao655")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_wnubf")
 
-[node name="Button" type="Button" parent="MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer"]
-custom_minimum_size = Vector2(170, 45)
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/ArrowLeft"]
+custom_minimum_size = Vector2(32, 24)
+layout_mode = 0
+offset_left = 13.0
+offset_top = 9.0
+offset_right = 60.0
+offset_bottom = 44.0
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("4_kotnm")
+flip_h = true
+
+[node name="Button" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer"]
+custom_minimum_size = Vector2(170, 50)
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_default_cursor_shape = 2
+theme_override_font_sizes/font_size = 20
 theme_override_styles/normal = SubResource("StyleBoxTexture_7vqvv")
 theme_override_styles/hover = SubResource("StyleBoxTexture_7vqvv")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_7vqvv")
@@ -128,7 +132,7 @@ theme_override_styles/disabled = SubResource("StyleBoxEmpty_32veg")
 theme_override_styles/focus = SubResource("StyleBoxTexture_7vqvv")
 text = "Add"
 
-[node name="ArrowRight" type="Button" parent="MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer"]
+[node name="ArrowRight" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer"]
 custom_minimum_size = Vector2(64, 2.08165e-12)
 layout_mode = 2
 mouse_default_cursor_shape = 2
@@ -138,14 +142,16 @@ theme_override_styles/pressed = SubResource("StyleBoxTexture_doxbc")
 theme_override_styles/disabled = SubResource("StyleBoxTexture_doxbc")
 theme_override_styles/focus = SubResource("StyleBoxTexture_doxbc")
 
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/ArrowRight"]
-custom_minimum_size = Vector2(64, 45)
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/ArrowRight"]
+custom_minimum_size = Vector2(47, 35)
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 6.0
+offset_top = 10.0
+offset_right = 53.0
+offset_bottom = 45.0
+scale = Vector2(0.3, 0.3)
 texture = ExtResource("4_kotnm")
-flip_h = true
 
-[connection signal="button_down" from="MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/ArrowLeft" to="." method="_on_arrow_left_button_down"]
-[connection signal="button_down" from="MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Button" to="." method="_on_button_button_down"]
-[connection signal="button_down" from="MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/ArrowRight" to="." method="_on_arrow_right_button_down"]
+[connection signal="button_down" from="PanelContainer/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/ArrowLeft" to="." method="_on_arrow_left_button_down"]
+[connection signal="button_down" from="PanelContainer/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Button" to="." method="_on_button_button_down"]
+[connection signal="button_down" from="PanelContainer/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/ArrowRight" to="." method="_on_arrow_right_button_down"]

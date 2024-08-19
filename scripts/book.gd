@@ -1,13 +1,13 @@
-extends PanelContainer
+extends AspectRatioContainer
 
 var index = 0
 var selected_skill: Skill = PlayerSkills.gained[0]
 
-@onready var button = $MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Button
-@onready var description = $MarginContainer/VBoxContainer/Description
-@onready var title = $MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer/Title
-@onready var consume_star = $MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer/ConsumeStar
-@onready var icon = $MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/PanelContainer/Icon
+@onready var button = $PanelContainer/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/Button
+@onready var description = $PanelContainer/MarginContainer/VBoxContainer/Description
+@onready var title = $PanelContainer/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer/Title
+@onready var consume_star = $PanelContainer/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer/ConsumeStar
+@onready var icon = $PanelContainer/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/PanelContainer/Icon
 
 func _process(delta):
 	if PlayerSkills.is_skill_in_slots(selected_skill):
