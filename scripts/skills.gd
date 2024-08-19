@@ -2,9 +2,14 @@ extends Node
 class_name Skills
 
 signal block_builder
+signal gravity_change
+signal cat
 
 var slots: Array[Skill] = []
-var gained: Array[Skill] = [preload("res://skills/block_builder.tres")]
+var gained: Array[Skill] = [
+	preload("res://skills/block_builder.tres"), 
+	preload("res://skills/gravity_change.tres"), 
+	preload("res://skills/cat.tres")]
 var selected: Array[Skill] = []
 var stars: int = 6
 

@@ -1,12 +1,12 @@
-[gd_resource type="Resource" script_class="Skill" load_steps=3 format=3 uid="uid://cx6jw4h58h3sv"]
+[gd_resource type="Resource" script_class="Skill" load_steps=3 format=3 uid="uid://cts65d01tmhhp"]
 
-[ext_resource type="Texture2D" uid="uid://cn2xd7q68tkln" path="res://sprites/ui/ui_block_builder_icon.png" id="1_icr7a"]
-[ext_resource type="Script" path="res://scripts/skill.gd" id="1_n7mtc"]
+[ext_resource type="Script" path="res://scripts/skill.gd" id="1_8nguh"]
+[ext_resource type="Texture2D" uid="uid://c6ukcpk53sssj" path="res://sprites/ui/ui_gravity_change_icon.png" id="1_i5qai"]
 
 [resource]
-script = ExtResource("1_n7mtc")
-name = "Block Builder"
-icon = ExtResource("1_icr7a")
+script = ExtResource("1_8nguh")
+name = "Gravity Change"
+icon = ExtResource("1_i5qai")
 description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-stars = 4
-signal_name = "block_builder"
+stars = 2
+signal_name = "gravity_change"

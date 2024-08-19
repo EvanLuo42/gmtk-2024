@@ -9,10 +9,11 @@ height = 90.0
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
 position = Vector2(196, 569)
+collision_layer = 2
 script = ExtResource("1_2y5o1")
 speed = 700.0
-acceleration = 0.1
-deceleration = 0.1
+acceleration = 0.3
+deceleration = 0.3
 jump_speed = -800.0
 gravity = 3000.0
 
@@ -29,5 +30,5 @@ position = Vector2(3, 45)
 target_position = Vector2(0, 23)
 
 [node name="CoyoteRay" type="RayCast2D" parent="."]
-position = Vector2(2, 45)
-target_position = Vector2(-92, 1)
+position = Vector2(2, 66)
+target_position = Vector2(-113, -1)
