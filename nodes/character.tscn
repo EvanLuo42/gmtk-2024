@@ -1,15 +1,55 @@
-[gd_scene load_steps=4 format=3 uid="uid://cs4mx6pohanja"]
+[gd_scene load_steps=7 format=3 uid="uid://cs4mx6pohanja"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_2y5o1"]
-[ext_resource type="Texture2D" uid="uid://dwqn3ibsb4w75" path="res://sprites/player.png" id="2_evnml"]
+[ext_resource type="Texture2D" uid="uid://b7apt1qe3ixy1" path="res://sprites/character/character_fall.png" id="2_82tif"]
+[ext_resource type="Texture2D" uid="uid://b578mqrhimclg" path="res://sprites/character/character_walk_2.png" id="3_hp1bn"]
+[ext_resource type="Texture2D" uid="uid://dvayfedhkv0id" path="res://sprites/character/character_walk_1.png" id="4_nvhx3"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vs4yv"]
-radius = 26.0
-height = 90.0
+[sub_resource type="SpriteFrames" id="SpriteFrames_wcjro"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_82tif")
+}],
+"loop": true,
+"name": &"fall",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_nvhx3")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_hp1bn")
+}],
+"loop": true,
+"name": &"jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_nvhx3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_hp1bn")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_15g0d"]
+size = Vector2(52.9167, 82.0962)
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
 position = Vector2(196, 569)
 collision_layer = 2
+safe_margin = 4.611
 script = ExtResource("1_2y5o1")
 speed = 700.0
 acceleration = 0.3
@@ -17,18 +57,20 @@ deceleration = 0.3
 jump_speed = -800.0
 gravity = 3000.0
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(5, 5)
-texture = ExtResource("2_evnml")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_wcjro")
+animation = &"walk"
+frame_progress = 0.660061
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(5, 3)
-shape = SubResource("CapsuleShape2D_vs4yv")
+position = Vector2(68.5, 45.025)
+scale = Vector2(7.2, 10.28)
+shape = SubResource("RectangleShape2D_15g0d")
 
 [node name="LandRay" type="RayCast2D" parent="."]
-position = Vector2(3, 45)
-target_position = Vector2(0, 23)
+position = Vector2(88, 405)
+target_position = Vector2(2, 235)
 
 [node name="CoyoteRay" type="RayCast2D" parent="."]
-position = Vector2(2, 66)
-target_position = Vector2(-113, -1)
+position = Vector2(85, 457)
+target_position = Vector2(-328, -1)

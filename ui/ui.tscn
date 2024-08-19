@@ -14,8 +14,9 @@
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_q82jq"]
 texture = ExtResource("5_tnt8a")
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dnjbc"]
-texture = ExtResource("8_oditc")
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_e10ha"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_25rfq"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8hftx"]
 texture = ExtResource("9_8jw2j")
@@ -23,9 +24,8 @@ texture = ExtResource("9_8jw2j")
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xvg2n"]
 texture = ExtResource("9_8jw2j")
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_25rfq"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_e10ha"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dnjbc"]
+texture = ExtResource("8_oditc")
 
 [node name="UI" type="Control"]
 layout_mode = 3
@@ -165,11 +165,13 @@ offset_left = 44.0
 offset_top = 2.0
 offset_right = 172.0
 offset_bottom = 130.0
-theme_override_styles/normal = SubResource("StyleBoxTexture_q82jq")
+focus_mode = 0
+mouse_default_cursor_shape = 2
+theme_override_styles/focus = SubResource("StyleBoxTexture_q82jq")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_q82jq")
 theme_override_styles/hover = SubResource("StyleBoxTexture_q82jq")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_q82jq")
-theme_override_styles/disabled = SubResource("StyleBoxTexture_q82jq")
-theme_override_styles/focus = SubResource("StyleBoxTexture_q82jq")
+theme_override_styles/normal = SubResource("StyleBoxTexture_q82jq")
 script = ExtResource("6_y4h81")
 
 [node name="Key" type="TextureRect" parent="BookOpenButton"]
@@ -219,12 +221,13 @@ offset_right = 64.1599
 offset_bottom = 62.4
 grow_horizontal = 2
 grow_vertical = 2
+focus_mode = 0
 mouse_default_cursor_shape = 2
-theme_override_styles/normal = SubResource("StyleBoxTexture_dnjbc")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_e10ha")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_25rfq")
 theme_override_styles/hover = SubResource("StyleBoxTexture_8hftx")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_xvg2n")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_25rfq")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_e10ha")
+theme_override_styles/normal = SubResource("StyleBoxTexture_dnjbc")
 script = ExtResource("10_3djok")
 
 [connection signal="button_down" from="BookOpenButton" to="BookOpenButton" method="_on_button_down"]

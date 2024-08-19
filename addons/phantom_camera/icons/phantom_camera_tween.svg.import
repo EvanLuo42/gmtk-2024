@@ -2,16 +2,17 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://csrcu7ndm6ss7"
-path="res://.godot/imported/character_1.png-c0d70be04a9f946edac810df1b03be38.ctex"
+uid="uid://dphl04mdf3220"
+path="res://.godot/imported/phantom_camera_tween.svg-16faced08ef4a5f3458264d894230dbd.ctex"
 metadata={
+"has_editor_variant": true,
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/character/character_1.png"
-dest_files=["res://.godot/imported/character_1.png-c0d70be04a9f946edac810df1b03be38.ctex"]
+source_file="res://addons/phantom_camera/icons/phantom_camera_tween.svg"
+dest_files=["res://.godot/imported/phantom_camera_tween.svg-16faced08ef4a5f3458264d894230dbd.ctex"]
 
 [params]
 
@@ -32,3 +33,6 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
+svg/scale=1.0
+editor/scale_with_editor_scale=false
+editor/convert_colors_with_editor_theme=true
