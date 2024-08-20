@@ -1,0 +1,145 @@
+[gd_scene load_steps=19 format=3 uid="uid://7dni2nnyju6j"]
+
+[ext_resource type="Script" path="res://scripts/start.gd" id="1_poce3"]
+[ext_resource type="Texture2D" uid="uid://bgo42r5xpagsy" path="res://sprites/ui/ui_start_background.png" id="1_r2hcj"]
+[ext_resource type="Texture2D" uid="uid://b4f0rncnvgk4e" path="res://sprites/ui/ui_start_title.png" id="2_gfn4x"]
+[ext_resource type="Theme" uid="uid://b2nrxvxpdvwsj" path="res://theme.tres" id="3_ndwfu"]
+[ext_resource type="Texture2D" uid="uid://yjiodw7ietma" path="res://sprites/ui/ui_button_book.png" id="4_dsj7f"]
+[ext_resource type="Texture2D" uid="uid://b578mqrhimclg" path="res://sprites/character/character_walk_2.png" id="5_js0ww"]
+[ext_resource type="Texture2D" uid="uid://166bb1ynus3f" path="res://sprites/ui/ui_start_cat.png" id="6_ngmxp"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gcxtg"]
+texture = ExtResource("4_dsj7f")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_edg2y"]
+texture = ExtResource("4_dsj7f")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_452hh"]
+texture = ExtResource("4_dsj7f")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gvbv2"]
+texture = ExtResource("4_dsj7f")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_k3qus"]
+texture = ExtResource("4_dsj7f")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lgs2h"]
+texture = ExtResource("4_dsj7f")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_a4eib"]
+texture = ExtResource("4_dsj7f")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dsr85"]
+texture = ExtResource("4_dsj7f")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2k2t4"]
+texture = ExtResource("4_dsj7f")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vxcew"]
+texture = ExtResource("4_dsj7f")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wr2st"]
+texture = ExtResource("4_dsj7f")
+
+[node name="Start" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_poce3")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -2880.0
+offset_top = -1800.0
+offset_right = 2880.0
+offset_bottom = 1800.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.35, 0.35)
+pivot_offset = Vector2(2880, 1800)
+texture = ExtResource("1_r2hcj")
+stretch_mode = 4
+
+[node name="Title" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1260.5
+offset_top = -651.0
+offset_right = 1260.5
+offset_bottom = 651.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.2, 0.2)
+pivot_offset = Vector2(1260, 651)
+texture = ExtResource("2_gfn4x")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -109.0
+offset_top = 195.0
+offset_right = 129.0
+offset_bottom = 258.0
+grow_horizontal = 2
+grow_vertical = 0
+pivot_offset = Vector2(119, 31)
+mouse_default_cursor_shape = 2
+theme = ExtResource("3_ndwfu")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/focus = SubResource("StyleBoxTexture_gcxtg")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxTexture_edg2y")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_452hh")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxTexture_gvbv2")
+theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_k3qus")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxTexture_lgs2h")
+theme_override_styles/hover = SubResource("StyleBoxTexture_a4eib")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxTexture_dsr85")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_2k2t4")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxTexture_vxcew")
+theme_override_styles/normal = SubResource("StyleBoxTexture_wr2st")
+text = "Start Game"
+
+[node name="Character" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = -721.0
+offset_top = 500.0
+offset_right = 14.0
+offset_bottom = 1482.0
+grow_vertical = 0
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("5_js0ww")
+
+[node name="Cat" type="TextureRect" parent="."]
+offset_left = 167.0
+offset_top = 500.0
+offset_right = 2003.0
+offset_bottom = 1792.0
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("6_ngmxp")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

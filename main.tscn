@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=4 uid="uid://tpte83hapm22"]
+[gd_scene load_steps=12 format=4 uid="uid://tpte83hapm22"]
 
 [ext_resource type="Texture2D" uid="uid://b7ijf2vvqnk6m" path="res://sprites/background.jpg" id="1_wcklb"]
 [ext_resource type="Texture2D" uid="uid://c2qigs627r62k" path="res://sprites/tile.png" id="1_y8dlg"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="5_ctsvm"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="5_svy83"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="6_oomnd"]
+[ext_resource type="PackedScene" uid="uid://b3t2d8ettk8nb" path="res://nodes/guider.tscn" id="8_arnmt"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4mxjo"]
 texture = ExtResource("1_y8dlg")
@@ -159,3 +160,7 @@ script = ExtResource("5_ctsvm")
 follow_mode = 2
 follow_target = NodePath("../Character")
 tween_resource = SubResource("Resource_goom7")
+
+[node name="Guider" parent="." instance=ExtResource("8_arnmt")]
+position = Vector2(527, 594)
+scale = Vector2(0.04, 0.04)
