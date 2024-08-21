@@ -1,0 +1,249 @@
+[gd_scene load_steps=20 format=4 uid="uid://616gf35y533j"]
+
+[ext_resource type="Texture2D" uid="uid://b7ijf2vvqnk6m" path="res://sprites/background.jpg" id="1_4ygw8"]
+[ext_resource type="Texture2D" uid="uid://bussrox70fy8n" path="res://sprites/slope_1.png" id="2_s47a6"]
+[ext_resource type="Texture2D" uid="uid://cc6e2wxd4y2ga" path="res://sprites/slope_2.png" id="3_fvf24"]
+[ext_resource type="Texture2D" uid="uid://hyvi1m4kyhp6" path="res://sprites/tile.png" id="4_erap7"]
+[ext_resource type="Texture2D" uid="uid://6ldgbrcx5wpu" path="res://sprites/slope_3.png" id="5_po5yx"]
+[ext_resource type="Texture2D" uid="uid://blgh4avo1j2fh" path="res://sprites/slope_4.png" id="6_glnr2"]
+[ext_resource type="PackedScene" uid="uid://jtexcvnxxhge" path="res://ui/ui.tscn" id="7_m1vwd"]
+[ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="8_yyq7q"]
+[ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="9_oxf4l"]
+[ext_resource type="Script" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="10_8o4fs"]
+[ext_resource type="Script" path="res://scripts/player_controller.gd" id="11_cl5mg"]
+[ext_resource type="PackedScene" uid="uid://8dowq0pj0fke" path="res://nodes/thorn.tscn" id="12_lmnuq"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mrlfo"]
+texture = ExtResource("2_s47a6")
+texture_region_size = Vector2i(255, 240)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-128, -128, -128, 128, 128, 128)
+0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-128, -128, -128, 128, 128, 128)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jhax7"]
+texture = ExtResource("3_fvf24")
+texture_region_size = Vector2i(256, 256)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-128, -128, 128, -128, -128, 128)
+0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-128, -128, 128, -128, -128, 128)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_x867v"]
+texture = ExtResource("4_erap7")
+margins = Vector2i(70, 41)
+texture_region_size = Vector2i(256, 256)
+3:1/0 = 0
+3:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-128, -128, 128, -128, 128, 128, -128, 128)
+4:1/0 = 0
+4:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-128, -128, 128, -128, 128, 128, -128, 128)
+4:2/0 = 0
+4:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-128, -128, 128, -128, 128, 128, -128, 128)
+3:2/0 = 0
+3:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-128, -128, 128, -128, 128, 128, -128, 128)
+2:2/0 = 0
+2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-128, -128, 128, -128, 128, 128, -128, 128)
+2:3/0 = 0
+2:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-128, -128, 128, -128, 128, 128, -128, 128)
+3:3/0 = 0
+3:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-128, -128, 128, -128, 128, 128, -128, 128)
+4:3/0 = 0
+4:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-128, -128, 128, -128, 128, 128, -128, 128)
+2:1/0 = 0
+2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-128, -128, 128, -128, 128, 128, -128, 128)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7l6lo"]
+texture = ExtResource("5_po5yx")
+texture_region_size = Vector2i(256, 256)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-128, -128, 128, -128, 128, 128)
+0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-128, -128, 128, -128, 128, 128)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ymp74"]
+texture = ExtResource("6_glnr2")
+texture_region_size = Vector2i(256, 256)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-128, -128, 128, -128, -128, 128)
+0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(128, 128, 128, -128, -128, 128)
+
+[sub_resource type="TileSet" id="TileSet_rw8a5"]
+tile_size = Vector2i(256, 256)
+physics_layer_0/collision_layer = 1
+physics_layer_0/collision_mask = 2
+sources/13 = SubResource("TileSetAtlasSource_x867v")
+sources/0 = SubResource("TileSetAtlasSource_mrlfo")
+sources/1 = SubResource("TileSetAtlasSource_jhax7")
+sources/2 = SubResource("TileSetAtlasSource_7l6lo")
+sources/3 = SubResource("TileSetAtlasSource_ymp74")
+
+[sub_resource type="Resource" id="Resource_y5tyy"]
+script = ExtResource("10_8o4fs")
+duration = 1.0
+transition = 0
+ease = 2
+
+[node name="Gravity Block" type="Node2D"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = -304.0
+offset_top = -50.0
+offset_right = 3208.0
+offset_bottom = 1820.0
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("1_4ygw8")
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+offset_left = 1801.0
+offset_top = -50.0
+offset_right = 5313.0
+offset_bottom = 1820.0
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("1_4ygw8")
+
+[node name="TextureRect3" type="TextureRect" parent="."]
+offset_left = -2404.0
+offset_top = -50.0
+offset_right = 1108.0
+offset_bottom = 1820.0
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("1_4ygw8")
+
+[node name="TextureRect4" type="TextureRect" parent="."]
+offset_left = -305.0
+offset_top = -1174.0
+offset_right = 3207.0
+offset_bottom = 696.0
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("1_4ygw8")
+
+[node name="TextureRect5" type="TextureRect" parent="."]
+offset_left = 1800.0
+offset_top = -1174.0
+offset_right = 5312.0
+offset_bottom = 696.0
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("1_4ygw8")
+
+[node name="TextureRect6" type="TextureRect" parent="."]
+offset_left = -2405.0
+offset_top = -1174.0
+offset_right = 1107.0
+offset_bottom = 696.0
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("1_4ygw8")
+
+[node name="TextureRect7" type="TextureRect" parent="."]
+offset_left = -295.0
+offset_top = 1084.0
+offset_right = 3217.0
+offset_bottom = 2954.0
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("1_4ygw8")
+
+[node name="TextureRect8" type="TextureRect" parent="."]
+offset_left = 1810.0
+offset_top = 1084.0
+offset_right = 5322.0
+offset_bottom = 2954.0
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("1_4ygw8")
+
+[node name="TextureRect9" type="TextureRect" parent="."]
+offset_left = -2395.0
+offset_top = 1084.0
+offset_right = 1117.0
+offset_bottom = 2954.0
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("1_4ygw8")
+
+[node name="Layer0" type="TileMapLayer" parent="."]
+use_parent_material = true
+position = Vector2(1, 0)
+scale = Vector2(0.3, 0.3)
+tile_map_data = PackedByteArray("AAAAAAsADQADAAEAAAABAAsADQADAAEAAAACAAsADQADAAEAAAADAAsADQADAAEAAAAEAAsADQADAAEAAAAFAAsADQADAAEAAAAGAAsADQADAAEAAAAHAAsADQADAAEAAAAIAAsADQADAAEAAAAJAAsADQADAAEAAAAKAAsADQADAAEAAAALAAsADQADAAEAAAAMAAsADQADAAEAAAANAAsADQADAAEAAAAOAP//DQADAAEAAAAOAAsADQADAAEAAAAPAP//DQADAAEAAAAQAP//DQADAAEAAAARAP//DQADAAEAAAASAP//DQADAAEAAAASAAQADQACAAEAAAASAAUADQACAAMAAAATAAQADQADAAEAAAATAAUADQADAAMAAAAUAAQADQAEAAEAAAAUAAUADQAEAAMAAAAWAAkADQACAAEAAAAWAAoADQACAAMAAAAXAAkADQADAAEAAAAXAAoADQADAAMAAAAYAAkADQAEAAEAAAAYAAoADQAEAAMAAAAZAP//DQADAAEAAAAaAP//DQADAAEAAAAbAP//DQADAAEAAAAcAP//DQADAAEAAAAdAP//DQADAAEAAAAeAAgADQADAAEAAAAfAAgADQADAAEAAAAgAAgADQADAAEAAAAhAAgADQADAAEAAAAiAAgADQADAAEAAAA=")
+tile_set = SubResource("TileSet_rw8a5")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="UI" parent="CanvasLayer" instance=ExtResource("7_m1vwd")]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+physics_interpolation_mode = 2
+position = Vector2(269, 240)
+
+[node name="PhantomCameraHost" type="Node" parent="Camera2D"]
+script = ExtResource("8_yyq7q")
+
+[node name="PhantomCamera2D" type="Node2D" parent="."]
+position = Vector2(269, 240)
+script = ExtResource("9_oxf4l")
+follow_mode = 2
+tween_resource = SubResource("Resource_y5tyy")
+follow_damping = true
+draw_limits = true
+
+[node name="Player" type="Node2D" parent="."]
+position = Vector2(269, 240)
+script = ExtResource("11_cl5mg")
+
+[node name="Thorn" parent="." instance=ExtResource("12_lmnuq")]
+position = Vector2(1131, 44)
+rotation = 3.14159
+scale = Vector2(2.57, 2.57)
+
+[node name="Thorn2" parent="." instance=ExtResource("12_lmnuq")]
+position = Vector2(1217, 44.9998)
+rotation = 3.14159
+scale = Vector2(2.57, 2.57)
+
+[node name="Thorn3" parent="." instance=ExtResource("12_lmnuq")]
+position = Vector2(1301, 43)
+rotation = 3.14159
+scale = Vector2(2.57, 2.57)
+
+[node name="Thorn4" parent="." instance=ExtResource("12_lmnuq")]
+position = Vector2(1388, 44)
+rotation = 3.14159
+scale = Vector2(2.57, 2.57)
+
+[node name="Thorn5" parent="." instance=ExtResource("12_lmnuq")]
+position = Vector2(1976, 48.9998)
+rotation = 3.14159
+scale = Vector2(2.57, 2.57)
+
+[node name="Thorn6" parent="." instance=ExtResource("12_lmnuq")]
+position = Vector2(2062, 49.9995)
+rotation = 3.14159
+scale = Vector2(2.57, 2.57)
+
+[node name="Thorn7" parent="." instance=ExtResource("12_lmnuq")]
+position = Vector2(2146, 47.9998)
+rotation = 3.14159
+scale = Vector2(2.57, 2.57)
+
+[node name="Thorn8" parent="." instance=ExtResource("12_lmnuq")]
+position = Vector2(2233, 48.9998)
+rotation = 3.14159
+scale = Vector2(2.57, 2.57)
+
+[node name="Thorn9" parent="." instance=ExtResource("12_lmnuq")]
+position = Vector2(2352, 556)
+rotation = 3.14159
+scale = Vector2(2.57, 2.57)
+
+[node name="Thorn10" parent="." instance=ExtResource("12_lmnuq")]
+position = Vector2(2438, 557)
+rotation = 3.14159
+scale = Vector2(2.57, 2.57)
+
+[node name="Thorn11" parent="." instance=ExtResource("12_lmnuq")]
+position = Vector2(2522, 555)
+rotation = 3.14159
+scale = Vector2(2.57, 2.57)
+
+[node name="Thorn12" parent="." instance=ExtResource("12_lmnuq")]
+position = Vector2(2609, 556)
+rotation = 3.14159
+scale = Vector2(2.57, 2.57)

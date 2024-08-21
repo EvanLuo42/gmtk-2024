@@ -1,0 +1,77 @@
+[gd_scene load_steps=7 format=3 uid="uid://beky6f77rxfp3"]
+
+[ext_resource type="Script" path="res://scripts/man.gd" id="1_4a103"]
+[ext_resource type="Texture2D" uid="uid://b7apt1qe3ixy1" path="res://sprites/character/character_fall.png" id="2_7533i"]
+[ext_resource type="Texture2D" uid="uid://dvayfedhkv0id" path="res://sprites/character/character_walk_1.png" id="3_26y3t"]
+[ext_resource type="Texture2D" uid="uid://b578mqrhimclg" path="res://sprites/character/character_walk_2.png" id="4_kkdu5"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_phq7x"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_7533i")
+}],
+"loop": true,
+"name": &"fall",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_26y3t")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_kkdu5")
+}],
+"loop": true,
+"name": &"jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_26y3t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_kkdu5")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_15g0d"]
+size = Vector2(4.63542, 5.64202)
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+position = Vector2(-1264, -554)
+collision_layer = 2
+safe_margin = 4.611
+script = ExtResource("1_4a103")
+speed = 700.0
+acceleration = 0.3
+deceleration = 0.3
+jump_speed = -1000.0
+gravity = 3000.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-4.90624, -9)
+scale = Vector2(0.0846089, 0.0936864)
+sprite_frames = SubResource("SpriteFrames_phq7x")
+animation = &"fall"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1.68751, -1.00002)
+scale = Vector2(7.2, 10.28)
+shape = SubResource("RectangleShape2D_15g0d")
+
+[node name="LandRay" type="RayCast2D" parent="."]
+position = Vector2(5, 14)
+target_position = Vector2(0, 25)
+
+[node name="CoyoteRay" type="RayCast2D" parent="."]
+position = Vector2(-7, 3)
+target_position = Vector2(-26, 0)

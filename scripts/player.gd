@@ -19,6 +19,8 @@ func _ready():
 	PlayerSkills.connect("block_builder", _on_block_builder)
 	PlayerSkills.connect("gravity_change", _on_gravity_change)
 	PlayerSkills.connect("cat", _on_cat)
+	if GameState.respawn_position == Vector2.ZERO:
+		GameState.respawn_position = position
 
 func _physics_process(delta):
 	velocity.y += gravity * gravity_dir * delta

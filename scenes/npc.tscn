@@ -1,0 +1,146 @@
+[gd_scene load_steps=22 format=4 uid="uid://d1fuupyglq1lb"]
+
+[ext_resource type="Texture2D" uid="uid://b7ijf2vvqnk6m" path="res://sprites/background.jpg" id="1_j03dp"]
+[ext_resource type="Texture2D" uid="uid://bussrox70fy8n" path="res://sprites/slope_1.png" id="2_rhw8d"]
+[ext_resource type="Texture2D" uid="uid://cc6e2wxd4y2ga" path="res://sprites/slope_2.png" id="3_h3mx3"]
+[ext_resource type="Texture2D" uid="uid://hyvi1m4kyhp6" path="res://sprites/tile.png" id="4_urwxi"]
+[ext_resource type="Texture2D" uid="uid://6ldgbrcx5wpu" path="res://sprites/slope_3.png" id="5_tqus8"]
+[ext_resource type="Texture2D" uid="uid://blgh4avo1j2fh" path="res://sprites/slope_4.png" id="6_kwu8k"]
+[ext_resource type="PackedScene" uid="uid://jtexcvnxxhge" path="res://ui/ui.tscn" id="7_w558o"]
+[ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="8_reby4"]
+[ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="9_dt66o"]
+[ext_resource type="Script" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="10_3vatu"]
+[ext_resource type="Script" path="res://scripts/player_controller.gd" id="11_l03w5"]
+[ext_resource type="PackedScene" uid="uid://b3t2d8ettk8nb" path="res://nodes/guider.tscn" id="12_pdb10"]
+[ext_resource type="PackedScene" uid="uid://ctubyntp5w81x" path="res://nodes/portal.tscn" id="13_pcdpk"]
+[ext_resource type="PackedScene" uid="uid://bh3ra6ma838sq" path="res://scenes/block_tutorial1.tscn" id="14_oqsii"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mrlfo"]
+texture = ExtResource("2_rhw8d")
+texture_region_size = Vector2i(255, 240)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-128, -128, -128, 128, 128, 128)
+0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-128, -128, -128, 128, 128, 128)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jhax7"]
+texture = ExtResource("3_h3mx3")
+texture_region_size = Vector2i(256, 256)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-128, -128, 128, -128, -128, 128)
+0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-128, -128, 128, -128, -128, 128)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_x867v"]
+texture = ExtResource("4_urwxi")
+margins = Vector2i(70, 41)
+texture_region_size = Vector2i(256, 256)
+3:1/0 = 0
+3:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-128, -128, 128, -128, 128, 128, -128, 128)
+4:1/0 = 0
+4:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-128, -128, 128, -128, 128, 128, -128, 128)
+4:2/0 = 0
+4:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-128, -128, 128, -128, 128, 128, -128, 128)
+3:2/0 = 0
+3:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-128, -128, 128, -128, 128, 128, -128, 128)
+2:2/0 = 0
+2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-128, -128, 128, -128, 128, 128, -128, 128)
+2:3/0 = 0
+2:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-128, -128, 128, -128, 128, 128, -128, 128)
+3:3/0 = 0
+3:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-128, -128, 128, -128, 128, 128, -128, 128)
+4:3/0 = 0
+4:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-128, -128, 128, -128, 128, 128, -128, 128)
+2:1/0 = 0
+2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-128, -128, 128, -128, 128, 128, -128, 128)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7l6lo"]
+texture = ExtResource("5_tqus8")
+texture_region_size = Vector2i(256, 256)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-128, -128, 128, -128, 128, 128)
+0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-128, -128, 128, -128, 128, 128)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ymp74"]
+texture = ExtResource("6_kwu8k")
+texture_region_size = Vector2i(256, 256)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-128, -128, 128, -128, -128, 128)
+0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(128, 128, 128, -128, -128, 128)
+
+[sub_resource type="TileSet" id="TileSet_rw8a5"]
+tile_size = Vector2i(256, 256)
+physics_layer_0/collision_layer = 1
+physics_layer_0/collision_mask = 2
+sources/13 = SubResource("TileSetAtlasSource_x867v")
+sources/0 = SubResource("TileSetAtlasSource_mrlfo")
+sources/1 = SubResource("TileSetAtlasSource_jhax7")
+sources/2 = SubResource("TileSetAtlasSource_7l6lo")
+sources/3 = SubResource("TileSetAtlasSource_ymp74")
+
+[sub_resource type="Resource" id="Resource_y5tyy"]
+script = ExtResource("10_3vatu")
+duration = 1.0
+transition = 0
+ease = 2
+
+[node name="Advanced" type="Node2D"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = -304.0
+offset_top = -50.0
+offset_right = 3208.0
+offset_bottom = 1820.0
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("1_j03dp")
+
+[node name="Layer0" type="TileMapLayer" parent="."]
+use_parent_material = true
+position = Vector2(1, 0)
+scale = Vector2(0.3, 0.3)
+tile_map_data = PackedByteArray("AAABAAMADQADAAIAAAACAAMADQADAAMAAAARAAMADQADAAIAAAABAAoADQADAAIAAAARAAoADQADAAIAAAARAAQADQACAAIAAAARAAUADQACAAIAAAARAAYADQACAAIAAAARAAcADQACAAIAAAARAAgADQACAAIAAAARAAkADQACAAIAAAAQAAoADQADAAEAAAAPAAoADQADAAEAAAAOAAoADQADAAEAAAANAAoADQADAAEAAAAMAAoADQADAAEAAAALAAoADQADAAEAAAAKAAoADQADAAEAAAAJAAoADQADAAEAAAAIAAoADQADAAEAAAAHAAoADQADAAEAAAAGAAoADQADAAEAAAAFAAoADQADAAEAAAAEAAoADQADAAEAAAADAAoADQADAAEAAAACAAoADQADAAEAAAADAAMADQADAAMAAAAEAAMADQADAAMAAAAFAAMADQADAAMAAAAGAAMADQADAAMAAAAHAAMADQADAAMAAAAIAAMADQADAAMAAAAJAAMADQADAAMAAAAKAAMADQADAAMAAAALAAMADQADAAMAAAAMAAMADQADAAMAAAANAAMADQADAAMAAAAOAAMADQADAAMAAAAPAAMADQADAAMAAAAQAAMADQADAAMAAAABAAQADQAEAAIAAAABAAUADQAEAAIAAAABAAYADQAEAAIAAAABAAcADQAEAAIAAAABAAgADQAEAAIAAAABAAkADQAEAAIAAAA=")
+tile_set = SubResource("TileSet_rw8a5")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="UI" parent="CanvasLayer" instance=ExtResource("7_w558o")]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+physics_interpolation_mode = 2
+position = Vector2(276, 652)
+
+[node name="PhantomCameraHost" type="Node" parent="Camera2D"]
+script = ExtResource("8_reby4")
+
+[node name="PhantomCamera2D" type="Node2D" parent="." node_paths=PackedStringArray("follow_target")]
+position = Vector2(276, 652)
+script = ExtResource("9_dt66o")
+follow_mode = 2
+follow_target = NodePath("../Player")
+tween_resource = SubResource("Resource_y5tyy")
+follow_damping = true
+draw_limits = true
+
+[node name="Player" type="Node2D" parent="."]
+position = Vector2(276, 652)
+script = ExtResource("11_l03w5")
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+offset_left = -318.0
+offset_top = 1089.0
+offset_right = 3194.0
+offset_bottom = 2959.0
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("1_j03dp")
+
+[node name="Guider" parent="." instance=ExtResource("12_pdb10")]
+position = Vector2(761, 695)
+scale = Vector2(0.05, 0.05)
+
+[node name="Portal" parent="." instance=ExtResource("13_pcdpk")]
+position = Vector2(1120, 642)
+scale = Vector2(0.32, 0.32)
+collision_mask = 2
+level = ExtResource("14_oqsii")

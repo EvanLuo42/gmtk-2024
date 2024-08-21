@@ -7,7 +7,7 @@ var cat_tween: Tween
 @onready var character = $Character
 @onready var timer = $Timer
 
-var level = preload("res://main.tscn")
+var level = preload("res://scenes/npc.tscn")
 
 func _ready() -> void:
 	if character_tween and character_tween.is_running():

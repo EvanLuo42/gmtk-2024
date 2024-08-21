@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://cs4mx6pohanja"]
+[gd_scene load_steps=7 format=3 uid="uid://ioiv42xwk6or"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_2y5o1"]
 [ext_resource type="Texture2D" uid="uid://b7apt1qe3ixy1" path="res://sprites/character/character_fall.png" id="2_82tif"]

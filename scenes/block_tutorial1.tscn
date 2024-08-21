@@ -1,0 +1,482 @@
+[gd_scene load_steps=19 format=4 uid="uid://bh3ra6ma838sq"]
+
+[ext_resource type="Texture2D" uid="uid://b7ijf2vvqnk6m" path="res://sprites/background.jpg" id="1_2twen"]
+[ext_resource type="Texture2D" uid="uid://hyvi1m4kyhp6" path="res://sprites/tile.png" id="2_oa70o"]
+[ext_resource type="PackedScene" uid="uid://jtexcvnxxhge" path="res://ui/ui.tscn" id="3_b6dpe"]
+[ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="4_283xv"]
+[ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="5_iyhr2"]
+[ext_resource type="Script" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="6_d0jsa"]
+[ext_resource type="PackedScene" uid="uid://bo3oaoo1rag1x" path="res://nodes/death_zone.tscn" id="7_iqyat"]
+[ext_resource type="Script" path="res://scripts/player_controller.gd" id="7_qd6dw"]
+[ext_resource type="PackedScene" uid="uid://bqhamtq20ykar" path="res://nodes/books.tscn" id="8_6xa1g"]
+[ext_resource type="PackedScene" uid="uid://bhmrmyp0d0bk2" path="res://nodes/book_1.tscn" id="8_x2vgc"]
+[ext_resource type="PackedScene" uid="uid://b2ohtha8sdxds" path="res://nodes/book_2.tscn" id="9_ccgpn"]
+[ext_resource type="PackedScene" uid="uid://cqjj13yuspdwd" path="res://nodes/shelf.tscn" id="10_j35cc"]
+[ext_resource type="PackedScene" uid="uid://8dowq0pj0fke" path="res://nodes/thorn.tscn" id="11_o7drm"]
+[ext_resource type="PackedScene" uid="uid://ctubyntp5w81x" path="res://nodes/portal.tscn" id="13_k33m0"]
+[ext_resource type="PackedScene" uid="uid://dbpgksdou4npj" path="res://scenes/gravity_tutorial.tscn" id="15_quw5n"]
+
+[sub_resource type="Resource" id="Resource_0ne5j"]
+script = ExtResource("6_d0jsa")
+duration = 1.0
+transition = 0
+ease = 2
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4kvk1"]
+texture = ExtResource("2_oa70o")
+margins = Vector2i(71, 41)
+texture_region_size = Vector2i(256, 256)
+3:1/0 = 0
+3:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-128, -128, 128, -128, 128, 128, -128, 128)
+4:1/0 = 0
+4:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-128, -128, 128, -128, 128, 128, -128, 128)
+4:2/0 = 0
+4:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-128, -128, 128, -128, 128, 128, -128, 128)
+3:2/0 = 0
+3:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-128, -128, 128, -128, 128, 128, -128, 128)
+2:2/0 = 0
+2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-128, -128, 128, -128, 128, 128, -128, 128)
+2:3/0 = 0
+2:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-128, -128, 128, -128, 128, 128, -128, 128)
+3:3/0 = 0
+3:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-128, -128, 128, -128, 128, 128, -128, 128)
+4:3/0 = 0
+4:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-128, -128, 128, -128, 128, 128, -128, 128)
+2:1/0 = 0
+2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-128, -128, 128, -128, 128, 128, -128, 128)
+
+[sub_resource type="TileSet" id="TileSet_gug8k"]
+tile_size = Vector2i(256, 256)
+physics_layer_0/collision_layer = 1
+physics_layer_0/collision_mask = 2
+sources/13 = SubResource("TileSetAtlasSource_4kvk1")
+
+[node name="GravityTutorial02" type="Node2D"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = -1182.0
+offset_top = -486.0
+offset_right = 2330.0
+offset_bottom = 1384.0
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("1_2twen")
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+offset_left = 923.0
+offset_top = -486.0
+offset_right = 4435.0
+offset_bottom = 1384.0
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("1_2twen")
+
+[node name="TextureRect3" type="TextureRect" parent="."]
+offset_left = -3282.0
+offset_top = -486.0
+offset_right = 230.0
+offset_bottom = 1384.0
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("1_2twen")
+
+[node name="TextureRect4" type="TextureRect" parent="."]
+offset_left = -1183.0
+offset_top = -1610.0
+offset_right = 2329.0
+offset_bottom = 260.0
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("1_2twen")
+
+[node name="TextureRect5" type="TextureRect" parent="."]
+offset_left = 922.0
+offset_top = -1610.0
+offset_right = 4434.0
+offset_bottom = 260.0
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("1_2twen")
+
+[node name="TextureRect6" type="TextureRect" parent="."]
+offset_left = -3283.0
+offset_top = -1610.0
+offset_right = 229.0
+offset_bottom = 260.0
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("1_2twen")
+
+[node name="TextureRect7" type="TextureRect" parent="."]
+offset_left = -1173.0
+offset_top = 648.0
+offset_right = 2339.0
+offset_bottom = 2518.0
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("1_2twen")
+
+[node name="TextureRect8" type="TextureRect" parent="."]
+offset_left = 932.0
+offset_top = 648.0
+offset_right = 4444.0
+offset_bottom = 2518.0
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("1_2twen")
+
+[node name="TextureRect9" type="TextureRect" parent="."]
+offset_left = -3273.0
+offset_top = 648.0
+offset_right = 239.0
+offset_bottom = 2518.0
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("1_2twen")
+
+[node name="TextureRect10" type="TextureRect" parent="."]
+offset_left = 5137.0
+offset_top = -478.0
+offset_right = 8649.0
+offset_bottom = 1392.0
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("1_2twen")
+
+[node name="TextureRect11" type="TextureRect" parent="."]
+offset_left = 7242.0
+offset_top = -478.0
+offset_right = 10754.0
+offset_bottom = 1392.0
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("1_2twen")
+
+[node name="TextureRect12" type="TextureRect" parent="."]
+offset_left = 3037.0
+offset_top = -478.0
+offset_right = 6549.0
+offset_bottom = 1392.0
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("1_2twen")
+
+[node name="TextureRect13" type="TextureRect" parent="."]
+offset_left = 5136.0
+offset_top = -1602.0
+offset_right = 8648.0
+offset_bottom = 268.0
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("1_2twen")
+
+[node name="TextureRect14" type="TextureRect" parent="."]
+offset_left = 7241.0
+offset_top = -1602.0
+offset_right = 10753.0
+offset_bottom = 268.0
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("1_2twen")
+
+[node name="TextureRect15" type="TextureRect" parent="."]
+offset_left = 3036.0
+offset_top = -1602.0
+offset_right = 6548.0
+offset_bottom = 268.0
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("1_2twen")
+
+[node name="TextureRect16" type="TextureRect" parent="."]
+offset_left = 5146.0
+offset_top = 656.0
+offset_right = 8658.0
+offset_bottom = 2526.0
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("1_2twen")
+
+[node name="TextureRect17" type="TextureRect" parent="."]
+offset_left = 7251.0
+offset_top = 656.0
+offset_right = 10763.0
+offset_bottom = 2526.0
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("1_2twen")
+
+[node name="TextureRect18" type="TextureRect" parent="."]
+offset_left = 3046.0
+offset_top = 656.0
+offset_right = 6558.0
+offset_bottom = 2526.0
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("1_2twen")
+
+[node name="TextureRect19" type="TextureRect" parent="."]
+offset_left = 11441.0
+offset_top = -478.0
+offset_right = 14953.0
+offset_bottom = 1392.0
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("1_2twen")
+
+[node name="TextureRect20" type="TextureRect" parent="."]
+offset_left = 13546.0
+offset_top = -478.0
+offset_right = 17058.0
+offset_bottom = 1392.0
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("1_2twen")
+
+[node name="TextureRect21" type="TextureRect" parent="."]
+offset_left = 9341.0
+offset_top = -478.0
+offset_right = 12853.0
+offset_bottom = 1392.0
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("1_2twen")
+
+[node name="TextureRect22" type="TextureRect" parent="."]
+offset_left = 11440.0
+offset_top = -1602.0
+offset_right = 14952.0
+offset_bottom = 268.0
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("1_2twen")
+
+[node name="TextureRect23" type="TextureRect" parent="."]
+offset_left = 13545.0
+offset_top = -1602.0
+offset_right = 17057.0
+offset_bottom = 268.0
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("1_2twen")
+
+[node name="TextureRect24" type="TextureRect" parent="."]
+offset_left = 9340.0
+offset_top = -1602.0
+offset_right = 12852.0
+offset_bottom = 268.0
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("1_2twen")
+
+[node name="TextureRect25" type="TextureRect" parent="."]
+offset_left = 11450.0
+offset_top = 656.0
+offset_right = 14962.0
+offset_bottom = 2526.0
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("1_2twen")
+
+[node name="TextureRect26" type="TextureRect" parent="."]
+offset_left = 13555.0
+offset_top = 656.0
+offset_right = 17067.0
+offset_bottom = 2526.0
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("1_2twen")
+
+[node name="TextureRect27" type="TextureRect" parent="."]
+offset_left = 9350.0
+offset_top = 656.0
+offset_right = 12862.0
+offset_bottom = 2526.0
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("1_2twen")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="UI" parent="CanvasLayer" instance=ExtResource("3_b6dpe")]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+physics_interpolation_mode = 2
+position = Vector2(-344, 233)
+
+[node name="PhantomCameraHost" type="Node" parent="Camera2D"]
+script = ExtResource("4_283xv")
+
+[node name="PhantomCamera2D" type="Node2D" parent="." node_paths=PackedStringArray("follow_target")]
+position = Vector2(-344, 233)
+script = ExtResource("5_iyhr2")
+follow_mode = 2
+follow_target = NodePath("../Player")
+tween_resource = SubResource("Resource_0ne5j")
+follow_damping = true
+draw_limits = true
+
+[node name="Player" type="Node2D" parent="."]
+position = Vector2(-344, 233)
+script = ExtResource("7_qd6dw")
+
+[node name="Layer0" type="TileMapLayer" parent="."]
+use_parent_material = true
+scale = Vector2(0.3, 0.3)
+tile_map_data = PackedByteArray("AAANAAoADQADAAEAAAAOAAoADQADAAEAAAAPAAoADQADAAEAAAAQAAoADQADAAIAAAAQAAkADQACAAIAAAAQAAgADQACAAIAAAAQAAcADQACAAIAAAAQAAYADQACAAIAAAAQAAUADQACAAIAAAAQAAQADQACAAIAAAAQAAMADQACAAIAAAAQAAIADQACAAIAAAAQAP//DQACAAIAAAACAAoADQADAAEAAAADAAoADQADAAEAAAD4/wMADQADAAIAAAD4/wQADQADAAIAAAD4/wUADQADAAIAAAD4/wYADQADAAIAAAD4/wcADQADAAIAAAD4/wgADQADAAIAAAD4/wkADQADAAIAAAD5/wMADQAEAAIAAAD5/wQADQAEAAIAAAD5/wUADQAEAAIAAAD5/wYADQAEAAIAAAD5/wcADQAEAAIAAAD5/wgADQAEAAIAAAD5/wkADQAEAAIAAAD5/woADQADAAIAAAD6/woADQADAAEAAAD7/woADQADAAEAAAD8/woADQADAAEAAAD9/wMADQACAAIAAAD9/wQADQACAAIAAAD9/wUADQACAAIAAAD9/wYADQACAAIAAAD9/wcADQACAAIAAAD9/woADQADAAEAAAD+/wMADQAEAAIAAAD+/wQADQAEAAIAAAD+/wUADQAEAAIAAAD+/wYADQAEAAIAAAD+/woADQADAAEAAAD//woADQADAAEAAAAAAAoADQADAAEAAAABAAoADQADAAEAAAAEAAoADQADAAEAAAAFAAoADQADAAEAAAAGAAoADQADAAEAAAAHAAoADQADAAEAAAAIAAoADQADAAEAAAAJAAoADQADAAEAAAAKAAoADQADAAEAAAALAAoADQADAAEAAAAMAAoADQADAAEAAAAgAP3/DQAEAAIAAAAgAP7/DQAEAAIAAAAgAP//DQAEAAIAAAAgAAAADQADAAIAAAAhAPb/DQAEAAIAAAAhAPf/DQAEAAIAAAAhAPj/DQAEAAIAAAAhAPn/DQAEAAMAAAAkAP7/DQACAAMAAAAlAP7/DQAEAAMAAAAnAPv/DQACAAMAAAAoAPv/DQAEAAMAAAAqAP7/DQACAAMAAAArAP7/DQAEAAMAAAAuAPr/DQACAAIAAAAuAPv/DQACAAIAAAAuAPz/DQACAAIAAAAuAP3/DQACAAIAAAAuAP7/DQACAAIAAAAuAP//DQACAAIAAAAuAAAADQADAAEAAAAwAPr/DQAEAAIAAAAwAPv/DQAEAAIAAAAwAPz/DQAEAAIAAAAwAP3/DQAEAAIAAAAwAP7/DQAEAAIAAAAwAP//DQAEAAIAAAAwAAAADQAEAAIAAAAwAAEADQAEAAIAAAAwAAIADQAEAAIAAAAwAAMADQAEAAIAAAAwAAQADQAEAAIAAAAwAAUADQAEAAIAAAAwAAYADQAEAAIAAAAwAAcADQAEAAIAAAAwAAgADQAEAAIAAAAwAAkADQAEAAIAAAAwAAoADQAEAAIAAAAwAAsADQAEAAIAAAAwAAwADQAEAAIAAAAwAA0ADQADAAIAAAA3APr/DQACAAIAAAA3APv/DQACAAIAAAA3APz/DQACAAIAAAA3AP3/DQACAAIAAAA3AP7/DQACAAIAAAA3AP//DQACAAIAAAA3AAAADQACAAIAAAA3AAEADQACAAIAAAA3AAIADQACAAIAAAA3AAMADQACAAIAAAA3AAQADQACAAIAAAA3AAUADQACAAIAAAA3AAYADQACAAIAAAA3AAcADQACAAIAAAA8AAgADQACAAIAAAA8AAkADQACAAIAAAA8AAoADQACAAIAAAA8AAsADQACAAIAAAA8AAwADQACAAIAAAA8AA0ADQADAAIAAAAbAPn/DQADAAMAAAAbAPz/DQADAAEAAAAcAPn/DQADAAMAAAAcAPz/DQADAAEAAAAdAPn/DQADAAMAAAAdAPz/DQADAAEAAAAeAPn/DQADAAMAAAAeAPz/DQADAAEAAAAfAPn/DQADAAMAAAAfAPz/DQADAAEAAAAgAPn/DQADAAMAAAAgAPz/DQADAAEAAAAhAPX/DQADAAIAAAAhAAAADQADAAEAAAAiAPX/DQADAAMAAAAiAAAADQADAAEAAAAjAPX/DQADAAMAAAAjAAAADQADAAEAAAAkAPX/DQADAAMAAAAkAP3/DQACAAEAAAAkAAAADQADAAEAAAAlAPX/DQADAAMAAAAlAP3/DQAEAAEAAAAlAAAADQADAAEAAAAmAPX/DQADAAMAAAAmAAAADQADAAEAAAAnAPX/DQADAAMAAAAnAPr/DQACAAEAAAAnAAAADQADAAEAAAAoAPX/DQADAAMAAAAoAPr/DQAEAAEAAAAoAAAADQADAAEAAAApAPX/DQADAAMAAAApAAAADQADAAEAAAAqAPX/DQADAAMAAAAqAP3/DQACAAEAAAAqAAAADQADAAEAAAArAPX/DQADAAMAAAArAP3/DQAEAAEAAAArAAAADQADAAEAAAAsAPX/DQADAAMAAAAsAAAADQADAAEAAAAtAPX/DQADAAMAAAAtAAAADQADAAEAAAAuAPX/DQADAAMAAAAuAPn/DQACAAEAAAAvAPX/DQADAAMAAAAvAPn/DQADAAEAAAAwAPX/DQADAAMAAAAwAPn/DQAEAAEAAAAxAPX/DQADAAMAAAAxAA0ADQADAAEAAAAyAPX/DQADAAMAAAAyAA0ADQADAAEAAAAzAA0ADQADAAEAAAA0AA0ADQADAAEAAAA1AA0ADQADAAEAAAA2AA0ADQADAAEAAAA3APn/DQACAAIAAAA3AA0ADQADAAEAAAA4AAcADQADAAMAAAA4AA0ADQADAAEAAAA5AAcADQADAAMAAAA5AA0ADQADAAEAAAA6AAcADQADAAMAAAA6AA0ADQADAAEAAAA7AAcADQADAAMAAAA7AA0ADQADAAEAAAA8AAcADQADAAIAAAAQAP3/DQACAAEAAAARAP3/DQADAAEAAAASAP3/DQADAAEAAAATAP3/DQADAAEAAAAUAP3/DQADAAEAAAAVAP3/DQADAAEAAAAWAP3/DQADAAEAAAAQAAEADQACAAIAAAAQAAAADQACAAIAAAAQAP7/DQACAAIAAAAQAPn/DQADAAMAAAARAPn/DQADAAMAAAASAPn/DQADAAMAAAATAPn/DQADAAMAAAAUAPn/DQADAAMAAAAVAPn/DQADAAMAAAAWAPn/DQADAAMAAAA=")
+tile_set = SubResource("TileSet_gug8k")
+
+[node name="Node2D2" type="Node2D" parent="."]
+position = Vector2(1637, -434)
+
+[node name="DeathZone" parent="." instance=ExtResource("7_iqyat")]
+position = Vector2(-724, -1456)
+scale = Vector2(4.11601, 3.20592)
+
+[node name="Books" parent="." instance=ExtResource("8_6xa1g")]
+position = Vector2(1068, 659)
+rotation = -0.0478208
+scale = Vector2(0.85, 0.85)
+
+[node name="Shelf2" parent="." instance=ExtResource("10_j35cc")]
+position = Vector2(570, 92)
+scale = Vector2(0.34, 0.34)
+
+[node name="Shelf" parent="." instance=ExtResource("10_j35cc")]
+position = Vector2(762, 454)
+scale = Vector2(0.4, 0.4)
+
+[node name="Book4" parent="." instance=ExtResource("8_x2vgc")]
+position = Vector2(791, -97)
+scale = Vector2(0.31, 0.31)
+
+[node name="Book1" parent="." instance=ExtResource("8_x2vgc")]
+position = Vector2(1098, 329)
+scale = Vector2(0.3, 0.3)
+
+[node name="Book2" parent="." instance=ExtResource("9_ccgpn")]
+position = Vector2(927, 198)
+scale = Vector2(0.2, 0.2)
+
+[node name="Book3" parent="." instance=ExtResource("9_ccgpn")]
+position = Vector2(1063, -186)
+scale = Vector2(0.2, 0.2)
+
+[node name="Thorn" parent="." instance=ExtResource("11_o7drm")]
+position = Vector2(763, 138)
+scale = Vector2(2.32, 2.32)
+
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2(64, -558)
+
+[node name="Thorn5" parent="Node2D" instance=ExtResource("11_o7drm")]
+position = Vector2(3742, 156)
+rotation = 1.5708
+scale = Vector2(3.133, 3.133)
+
+[node name="Thorn4" parent="Node2D" instance=ExtResource("11_o7drm")]
+position = Vector2(3742, 53)
+rotation = 1.5708
+scale = Vector2(3.1329, 3.1329)
+
+[node name="Thorn6" parent="Node2D" instance=ExtResource("11_o7drm")]
+position = Vector2(3743, 263)
+rotation = 1.5708
+scale = Vector2(3.1329, 3.1329)
+
+[node name="Thorn7" parent="Node2D" instance=ExtResource("11_o7drm")]
+position = Vector2(3745, 470)
+rotation = 1.5708
+scale = Vector2(3.133, 3.133)
+
+[node name="Thorn8" parent="Node2D" instance=ExtResource("11_o7drm")]
+position = Vector2(3745, 367)
+rotation = 1.5708
+scale = Vector2(3.1329, 3.1329)
+
+[node name="Thorn9" parent="Node2D" instance=ExtResource("11_o7drm")]
+position = Vector2(3746, 577)
+rotation = 1.5708
+scale = Vector2(3.1329, 3.1329)
+
+[node name="Thorn10" parent="Node2D" instance=ExtResource("11_o7drm")]
+position = Vector2(3746, 786)
+rotation = 1.5708
+scale = Vector2(3.133, 3.133)
+
+[node name="Thorn11" parent="Node2D" instance=ExtResource("11_o7drm")]
+position = Vector2(3746, 683)
+rotation = 1.5708
+scale = Vector2(3.1329, 3.1329)
+
+[node name="Thorn12" parent="Node2D" instance=ExtResource("11_o7drm")]
+position = Vector2(3747, 893)
+rotation = 1.5708
+scale = Vector2(3.1329, 3.1329)
+
+[node name="Thorn13" parent="Node2D" instance=ExtResource("11_o7drm")]
+position = Vector2(3749, 1100)
+rotation = 1.5708
+scale = Vector2(3.133, 3.133)
+
+[node name="Thorn14" parent="Node2D" instance=ExtResource("11_o7drm")]
+position = Vector2(3749, 997)
+rotation = 1.5708
+scale = Vector2(3.1329, 3.1329)
+
+[node name="Thorn15" parent="Node2D" instance=ExtResource("11_o7drm")]
+position = Vector2(3750, 1207)
+rotation = 1.5708
+scale = Vector2(3.1329, 3.1329)
+
+[node name="Thorn16" parent="Node2D" instance=ExtResource("11_o7drm")]
+position = Vector2(3746, 1408)
+rotation = 1.5708
+scale = Vector2(3.133, 3.133)
+
+[node name="Thorn17" parent="Node2D" instance=ExtResource("11_o7drm")]
+position = Vector2(3746, 1305)
+rotation = 1.5708
+scale = Vector2(3.1329, 3.1329)
+
+[node name="Thorn18" parent="Node2D" instance=ExtResource("11_o7drm")]
+position = Vector2(3747, 1515)
+rotation = 1.5708
+scale = Vector2(3.1329, 3.1329)
+
+[node name="Node2D3" type="Node2D" parent="."]
+position = Vector2(417, -530)
+
+[node name="Thorn5" parent="Node2D3" instance=ExtResource("11_o7drm")]
+position = Vector2(3742, 156)
+rotation = 4.71239
+scale = Vector2(3.133, 3.133)
+
+[node name="Thorn4" parent="Node2D3" instance=ExtResource("11_o7drm")]
+position = Vector2(3742, 53)
+rotation = 4.71239
+scale = Vector2(3.1329, 3.1329)
+
+[node name="Thorn6" parent="Node2D3" instance=ExtResource("11_o7drm")]
+position = Vector2(3743, 263)
+rotation = 4.71239
+scale = Vector2(3.1329, 3.1329)
+
+[node name="Thorn7" parent="Node2D3" instance=ExtResource("11_o7drm")]
+position = Vector2(3745, 470)
+rotation = 4.71239
+scale = Vector2(3.133, 3.133)
+
+[node name="Thorn8" parent="Node2D3" instance=ExtResource("11_o7drm")]
+position = Vector2(3745, 367)
+rotation = 4.71239
+scale = Vector2(3.1329, 3.1329)
+
+[node name="Thorn9" parent="Node2D3" instance=ExtResource("11_o7drm")]
+position = Vector2(3746, 577)
+rotation = 4.71239
+scale = Vector2(3.1329, 3.1329)
+
+[node name="Thorn10" parent="Node2D3" instance=ExtResource("11_o7drm")]
+position = Vector2(3746, 786)
+rotation = 4.71239
+scale = Vector2(3.133, 3.133)
+
+[node name="Thorn11" parent="Node2D3" instance=ExtResource("11_o7drm")]
+position = Vector2(3746, 683)
+rotation = 4.71239
+scale = Vector2(3.1329, 3.1329)
+
+[node name="Thorn12" parent="Node2D3" instance=ExtResource("11_o7drm")]
+position = Vector2(3747, 893)
+rotation = 4.71239
+scale = Vector2(3.1329, 3.1329)
+
+[node name="Thorn13" parent="Node2D3" instance=ExtResource("11_o7drm")]
+position = Vector2(3749, 1100)
+rotation = 4.71239
+scale = Vector2(3.133, 3.133)
+
+[node name="Thorn14" parent="Node2D3" instance=ExtResource("11_o7drm")]
+position = Vector2(3749, 997)
+rotation = 4.71239
+scale = Vector2(3.1329, 3.1329)
+
+[node name="Portal" parent="." instance=ExtResource("13_k33m0")]
+position = Vector2(4388, 830)
+scale = Vector2(0.37, 0.37)
+collision_mask = 2
+level = ExtResource("15_quw5n")

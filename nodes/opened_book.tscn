@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://b4h6s5aqglkka"]
+
+[ext_resource type="Texture2D" uid="uid://jfgsbwb5hlgn" path="res://sprites/opened_book.png" id="1_mvoda"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8ooqd"]
+size = Vector2(297, 167)
+
+[node name="OpenedBook" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_mvoda")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2.5, -0.5)
+shape = SubResource("RectangleShape2D_8ooqd")

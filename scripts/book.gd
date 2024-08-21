@@ -22,7 +22,7 @@ func _process(delta):
 	
 	description.text = selected_skill.description
 	title.text = selected_skill.name
-	consume_star.text = str(selected_skill.stars)
+	consume_star.text = "Consume " + str(selected_skill.stars) + " stars"
 	icon.texture = selected_skill.icon
 
 

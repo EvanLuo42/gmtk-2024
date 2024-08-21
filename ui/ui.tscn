@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://jtexcvnxxhge"]
+[gd_scene load_steps=19 format=3 uid="uid://jtexcvnxxhge"]
 
 [ext_resource type="PackedScene" uid="uid://d3ppwkowr1y46" path="res://ui/skill_slot.tscn" id="1_eqvdb"]
 [ext_resource type="PackedScene" uid="uid://77n2e175wke" path="res://ui/book.tscn" id="2_7f0a2"]
@@ -10,6 +10,8 @@
 [ext_resource type="Texture2D" uid="uid://byeoasosjlxia" path="res://sprites/ui/ui_button_close_normal.png" id="8_oditc"]
 [ext_resource type="Texture2D" uid="uid://15jciur4fvy1" path="res://sprites/ui/ui_button_close_hover.png" id="9_8jw2j"]
 [ext_resource type="Script" path="res://scripts/close_button.gd" id="10_3djok"]
+[ext_resource type="Theme" uid="uid://b2nrxvxpdvwsj" path="res://theme.tres" id="11_c84gq"]
+[ext_resource type="Script" path="res://scripts/button.gd" id="12_tw3tj"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_q82jq"]
 texture = ExtResource("5_tnt8a")
@@ -230,5 +232,22 @@ theme_override_styles/pressed = SubResource("StyleBoxTexture_xvg2n")
 theme_override_styles/normal = SubResource("StyleBoxTexture_dnjbc")
 script = ExtResource("10_3djok")
 
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 64.0
+offset_top = -97.0
+offset_right = 211.0
+offset_bottom = -29.0
+grow_vertical = 0
+scale = Vector2(0.7, 0.7)
+theme = ExtResource("11_c84gq")
+theme_override_font_sizes/font_size = 20
+text = "Restart"
+script = ExtResource("12_tw3tj")
+
 [connection signal="button_down" from="BookOpenButton" to="BookOpenButton" method="_on_button_down"]
 [connection signal="button_down" from="CloseButton" to="CloseButton" method="_on_button_down"]
+[connection signal="pressed" from="Button" to="Button" method="_on_pressed"]

@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://dfsiv8hvfvihp"]
+
+[ext_resource type="Texture2D" uid="uid://cntkwbwpxo4x8" path="res://sprites/lost_chapter_block.png" id="1_5yj0g"]
+
+[node name="LostChapter" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_5yj0g")

@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://cqjj13yuspdwd"]
+
+[ext_resource type="Texture2D" uid="uid://c6lkueixc4nnb" path="res://sprites/shelf.png" id="1_lx0dw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uv8pg"]
+size = Vector2(225.393, 381.404)
+
+[node name="Shelf" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_lx0dw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(8.25027, -0.426369)
+rotation = -0.218166
+shape = SubResource("RectangleShape2D_uv8pg")
